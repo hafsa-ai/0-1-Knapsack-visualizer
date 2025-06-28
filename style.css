@@ -1,0 +1,96 @@
+/* Basic dark-on-light look – tweak as you like */
+*{box-sizing:border-box;font-family:system-ui,Roboto,Arial,sans-serif}
+body{margin:0;display:flex;flex-direction:column;align-items:center;padding:2rem;gap:1.5rem;background:#abf2baf1;min-height:100vh}
+h1{margin:0;color:#07417a}
+.controls{display:flex;flex-wrap:wrap;gap:1rem;align-items:end;justify-content:center}
+.controls label{display:flex;flex-direction:column;font-size:.875rem;font-weight:600;color:#012}
+.controls input[type="text"],.controls input[type="number"]{padding:.5rem;border:2px solid #4caf50;border-radius:.5rem;min-width:7rem}
+.speed{min-width:10rem}
+.controls button{padding:.6rem 1.2rem;border:none;border-radius:.5rem;background:#2196f3;color:#fff;font-weight:600;cursor:pointer}
+.controls button:hover{filter:brightness(1.1)}
+#result{font-size:1.25rem;font-weight:700;color:#0a0}
+#tableWrapper{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;margin-top:1rem}
+th,td{width:40px;height:40px;text-align:center;border:1px solid #000;font-size:.85rem}
+th{background:#dfe8ff;font-weight:700;color:#012}
+td{background:#b2fab2}
+td.current{background:#ffeb3b}
+td.chosen{background:#4caf50;color:#fff;font-weight:700}
+td.zero{background:#d3ffd3}
+
+/* --- visual layout for side-by-side view --- */
+#visualArea{
+  display:flex;
+  gap:2rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+/* --- knapsack box --- */
+#knapsackContainer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-width:180px;
+  height:500px;               /* visual height of the bag */
+  border:4px solid #4caf50;
+  border-radius:.75rem;
+  background:#e0ffe0;
+  box-shadow:0 0 8px #4caf50 inset;
+  padding:.5rem 1rem;
+}
+
+#knapsackContainer h3{
+  margin:.25rem 0 .5rem;
+  font-size:1.1rem;
+  color:#065;
+}
+
+#knapsackInner{
+  flex:1;
+  width:100%;
+  display:flex;
+  flex-direction:column-reverse; /* stack from bottom up */
+  align-items:stretch;
+  gap:.25rem;
+}
+
+/* individual item blocks */
+.itemBlock{
+  --drop-ms:600;
+  background:#4caf50;
+  color:#fff;
+  font-size:.65rem;
+  font-weight:600;
+  border-radius:.4rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:.2rem;
+  /* drop-in animation */
+  opacity:0;
+  transform:translateY(calc(-100% - .5rem));
+  animation:drop var(--drop-ms) ease-out forwards;
+}
+/* --- code panel --- */
+#codeBox{
+  background:blanchedalmond;
+  color:#467c7d;
+  border-radius:.75rem;
+  padding:1rem;
+  font: .8rem/1.4 "Fira Code", monospace;
+  max-height:550px;            /* same as knapsack */
+  min-width:300px;
+  overflow:auto;
+  white-space:pre;
+  box-shadow: 0 0 4px #ccc inset;
+}
+.codeLine.active{
+  background:#d6d6d6;
+  color:#3a7491;
+}
+
+@keyframes drop{
+  to{opacity:1; transform:none;}
+}

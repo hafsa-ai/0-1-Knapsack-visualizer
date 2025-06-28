@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0/1 Knapsack Visualiser</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>0/1 Knapsack Algorithm Visualiser</h1>
+
+  <section class="controls">
+    <label>
+      Profit / Value&nbsp;array
+      <input id="values" type="text" placeholder="e.g. 3 6 8" />
+    </label>
+
+    <label>
+      Weight array
+      <input id="weights" type="text" placeholder="e.g. 2 4 7" />
+    </label>
+
+    <label>
+      Capacity
+      <input id="capacity" type="number" min="1" value="10" />
+    </label>
+
+    <label class="speed">
+      Animation speed
+      <input id="speedRange" type="range" min="50" max="800" value="250" />
+    </label>
+
+    <button id="startBtn">Start</button>
+    <button id="resetBtn">Reset</button>
+  </section>
+
+  <h2 id="result"></h2>
+
+  <!-- Visual area containing DP table and knapsack -->
+  <div id="visualArea">
+    <div id="tableWrapper"><!-- DP table is injected here --></div>
+
+    <div id="knapsackContainer">
+      <pre id="codeBox"></pre>
+      <h3>KnapSack(Container)</h3>
+      <div id="knapsackInner"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
